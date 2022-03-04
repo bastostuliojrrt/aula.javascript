@@ -14,6 +14,8 @@ console.log(media);
 
 if(media >= 7){
     document.write("Aprovador. Sua média foi " + media);
+}else if(media >= 8){
+    document.write("Reprovado. Sua média foi " + media);
 }else{
     document.write("Reprovado. Sua média foi " + media);
 }
