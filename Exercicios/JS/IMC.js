@@ -1,24 +1,40 @@
 document.getElementById("button-enviar").onclick = function() {valida()};
 
+let nomeElement = document.getElementById("nome");
+let nome;
+let alturaElement = document.getElementById("altura");
+let altura;
+let pesoElement = document.getElementById("peso");
+let peso;
+let IMC;
+
 function valida(){
 
-    var nome = document.getElementById("nome").value;
-    // document.getElementById("nome").setAttribute("disabled", "disable");
+    nome = nomeElement.value;
     console.log(nome);
 
-    var altura = document.getElementById("altura").value;
+    altura = alturaElement.value;
     altura = parseFloat(altura);
     altura = altura / 100;
-    // document.getElementById("altura").setAttribute("disabled", "disable");
     console.log(altura);
 
-    var peso = document.getElementById("peso").value;
+    peso = pesoElement.value;
     peso = parseFloat(peso);
-    // document.getElementById("peso").setAttribute("disabled", "disable");
     console.log(peso);
 
-    if(altura != parseFloat(altura) || peso != parseFloat(peso)){
+    alturaElement.classList.remove("input-erro");
+    pesoElement.classList.remove("input-erro");
+
+    if(isNaN(altura) || Math.sign(altura) == -1|| isNaN(peso) || Math.sign(peso) == -1){
         alert("Valor digitado está inválido");
+        if (isNaN(altura) && isNaN(peso) || Math.sign(altura) == -1 && Math.sign(peso) == -1){
+            alturaElement.classList.add("input-erro");
+            pesoElement.classList.add("input-erro");
+        }else if(isNaN(altura) || Math.sign(altura) == -1){
+            alturaElement.classList.add("input-erro");
+        }else if(isNaN(peso) || Math.sign(peso) == -1){
+            pesoElement.classList.add("input-erro");
+        }
     }else{
         calculaIMC();
     }
@@ -26,7 +42,7 @@ function valida(){
 
 function calculaIMC() {
 
-    var IMC = peso / altura ** 2;
+    IMC = peso / altura ** 2;
     IMC = IMC.toFixed(2);
     console.log(IMC);
     document.getElementById("imc").value = IMC;
@@ -46,7 +62,7 @@ function calculaIMC() {
     }else if(IMC > 35 && IMC < 39.99){
         document.getElementById("resultado").value = "Obesidade Grau 2";
     }else if(IMC > 40){
-        document.getElementById("resultado").value = "Obresidade Grau 3";
+        document.getElementById("resultado").value = "Obesidade Grau 3";
     }
 
 }

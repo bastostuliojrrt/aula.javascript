@@ -2,8 +2,8 @@ var idade = prompt("Qual a sua idade: ");
 idade = parseInt(idade);
 console.log(idade);
 
-while(idade != parseInt(idade) || Math.sign(idade) == -1){
-    alert("O valor digitado não é um número.")
+while(isNaN(idade) || Math.sign(idade) == -1){
+    alert("O valor digitado não é um número.");
     idade = prompt("Qual a sua idade: ");
     console.log(idade);
 }
