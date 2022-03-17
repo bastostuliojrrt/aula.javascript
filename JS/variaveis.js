@@ -10,7 +10,7 @@ var teste = true;
 
 
 // Método write escreve o texto diretamente no browser
-document.write('teste');
+document.write('teste')
 
 
 console.log(teste);
