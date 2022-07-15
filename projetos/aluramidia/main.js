@@ -1,6 +1,11 @@
 function tocarSom(idAudio) {
-  document.querySelector(idAudio).play();
-  console.log("Som tocando");
+  const elemento = document.querySelector(idAudio)
+  
+  if(elemento && elemento.localName === 'audio'){
+    elemento.play();
+  }else{
+    alert('Elemento não encontrado ou seletor inválido');
+  }
 }
 
 const listaTeclas = document.querySelectorAll('.tecla'); // retorna array com lista de teclas
