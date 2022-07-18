@@ -1,25 +1,21 @@
 document.getElementById("button-enviar").onclick = function() {valida()};
 
 let nomeElement = document.getElementById("nome");
-let nome;
 let alturaElement = document.getElementById("altura");
-let altura;
 let pesoElement = document.getElementById("peso");
-let peso;
-let IMC;
+let nome, altura, peso, IMC;
+
 
 function valida(){
 
     nome = nomeElement.value;
     console.log(nome);
 
-    altura = alturaElement.value;
-    altura = parseFloat(altura);
+    altura = parseFloat(alturaElement.value);
     altura = altura / 100;
     console.log(altura);
 
-    peso = pesoElement.value;
-    peso = parseFloat(peso);
+    peso = parseFloat(pesoElement.value);
     console.log(peso);
 
     alturaElement.classList.remove("input-erro");
